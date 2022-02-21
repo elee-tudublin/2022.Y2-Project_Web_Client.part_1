@@ -12,7 +12,7 @@ This tutorial will show how to display data, from **your** ```Supabase``` databa
 
 The Supabase API examples for accessing data can be found in the API section for JavaScript - these will be referenced later.
 
-![Supabase API examples](.\media\api.png)
+![Supabase API examples](./media/api.png)
 
 ## Pre-requisites
 
@@ -27,11 +27,11 @@ The client website needs to be hosted as web browsers enforce a ```same origin p
 
 Make sure that you have an up-to-date version of Node.js installed on your system. To check the current version (if installed), **open a console/ terminal** and then run **```node --version```**. You will see an error if Node.js is not currently installed.
 
-![Check NodeJS version](.\media\check_node_version.png)
+![Check NodeJS version](./media/check_node_version.png)
 
 To install or update Node.JS, download the current version from the **[nodejs.org website](https://nodejs.org/en/)**.
 
-![nodejs.org](.\media\node_js.png)
+![nodejs.org](./media/node_js.png)
 
 
 
@@ -47,19 +47,19 @@ You should also make sure the latest version of **[VS Code](https://code.visuals
 
 To get started, download the code from this repository.  It contains a website which is hosted by ```Node.js + Express```. 
 
-After downloading, unzip the start application and *move it to somewhere easy to find, e.g., ```c:\webapps\y2-project\```.
+After downloading, unzip the start application and *move it to somewhere easy to find, e.g., ```c:/webapps/y2-project/```.
 
 #### 2. Open with VS Code
 
 It is important to **open the web app folder in VS Code** and not individual files from a project. Folders can be opened from the VS Code file menu or by right-clicking the folder in windows explorer and choosing **Open with VS Code**).
 
-![open the start app](.\media\open_start_app.png)
+![open the start app](./media/open_start_app.png)
 
 
 
 The website can be found in the ```public``` folder, the contents of which will be hosted by the web server. You will find the home page for the site, ```index.html``` here.
 
-![site structure](.\media\site_structure.png)
+![site structure](./media/site_structure.png)
 
 Most of the files outside of the ```public``` folder are used by ```Node.js and Express``` to configure and start the HTTP server, ```server.js``` being the most important. You will not need to modify any of these files but it is important not to delete them!
 
@@ -69,17 +69,17 @@ This file is ```readme.md``` and the screenshots are stored in the ```media``` f
 
 To start the webserver, first open a ```New Terminal``` from the Terminal menu in VS Code.
 
-![VS Code Terminal](.\media\vscode_terminal.png)
+![VS Code Terminal](./media/vscode_terminal.png)
 
 
 
 Then use the Node Package Manager to install the required dependencies using the ```npm install``` command.
 
-![npm install](.\media\npm_install.png)
+![npm install](./media/npm_install.png)
 
 Finally, start the server using the ```npm run start``` command.
 
-![npm run start](.\media\npm_run_start.png)
+![npm run start](./media/npm_run_start.png)
 
 If everything worked, the message above will be returned in the terminal to indicate that the server is listening on ```http://localhost:3000```.
 
@@ -89,7 +89,7 @@ Open ```http://localhost:3000``` in a web browser. This should load the site hom
 
 You should also open the browser console and check for any error messages or other information useful for diagnosing problems.
 
-![website](.\media\open_site.png)
+![website](./media/open_site.png)
 
 
 
@@ -103,7 +103,7 @@ The full Supabase reference guide for JavaScript is linked from the site, see  [
 
 This is a set of JavaScript functions which provides access to the database. The script is loaded near the end of ```index.html``` see:
 
-![index.html scripts](.\media\index_script.png)
+![index.html scripts](./media/index_script.png)
 
 Also note that ```index.js``` after Supabase, more on that later.
 
@@ -111,13 +111,13 @@ Also note that ```index.js``` after Supabase, more on that later.
 
 Now to configure Supabase so that it can access your account and database. Open ```supbase.js``` which you can find the the ```public/src/dataAccess``` folder.
 
-![supabase.js](.\media\supabase_js.png)
+![supabase.js](./media/supabase_js.png)
 
 
 
 Replace the placeholder text with you values which can be found in the API settings section of your Supabase database.
 
-![supabase settings](.\media\supabase_settings.png)
+![supabase settings](./media/supabase_settings.png)
 
 The rest of ```supbase.js``` creates a connection to Supabase, which is exported as ```Supabase```
 
@@ -127,17 +127,17 @@ The rest of ```supbase.js``` creates a connection to Supabase, which is exported
 
 When index.html loads first, it is empty and looks like this: 
 
-![empty page](.\media\empty_page.png)
+![empty page](./media/empty_page.png)
 
 The events will be inserted in index.html as rows in the ```tbody``` element of the events table with ```id="eventRows"```
 
-![events html table](.\media\events-tables.png)
+![events html table](./media/events-tables.png)
 
 
 
 Near the end of ```index.html``` you will see that the script ```./src/index.js``` is loaded. This script is responsible for retrieving and displaying data when the client app is loaded. This section describes the process in detail.
 
-![index.js script](.\media\load_index_js.png)
+![index.js script](./media/load_index_js.png)
 
 
 
@@ -147,7 +147,7 @@ The main purpose of this script is to get the data and then add it as content to
 
 Line 10 of  ```index.js``` gets a reference to the page element (```index.html``` ) where event details will be inserted. This will be referenced using the ```eventRows``` variable.
 
-![get ref of page element id](.\media\getElementById.png)
+![get ref of page element id](./media/getElementById.png)
 
 
 
@@ -157,13 +157,13 @@ Line 10 of  ```index.js``` gets a reference to the page element (```index.html``
 
  ```index.js```  starts by importing ```./dataAccess/eventdata.js```, which contains the data access functions. 
 
-![index.js import](.\media\index_js.png)
+![index.js import](./media/index_js.png)
 
 
 
 further down the page at line 49, the ```async function loadAndDisplayData()``` calls ```eventData.getAllEvents()``` to get a list of the events from Supabase.
 
-![Load and Display Data](.\media\loadAndDisplayData.png)
+![Load and Display Data](./media/loadAndDisplayData.png)
 
 
 
@@ -171,7 +171,7 @@ further down the page at line 49, the ```async function loadAndDisplayData()``` 
 
 The function can be found in **```public/src/dataAccess/eventData.js```**. This file contains all of the functions required for getting event data from Supabase.
 
-![Event Data](.\media\evenData.png)
+![Event Data](./media/evenData.png)
 
 
 
@@ -179,7 +179,7 @@ The function can be found in **```public/src/dataAccess/eventData.js```**. This 
 
 The list of ```events``` returned by ```getAllEvents()``` is then passed to the ```displayEventList()``` function.
 
-![Display Events](.\media\doisplay_events.png)
+![Display Events](./media/doisplay_events.png)
 
 
 
@@ -187,7 +187,7 @@ The list of ```events``` returned by ```getAllEvents()``` is then passed to the 
 
 The function creates a table row for each event and then adds the rows to ```index.html```
 
-![displayEventList()](.\media\displayEventList.png)
+![displayEventList()](./media/displayEventList.png)
 
  
 
@@ -197,13 +197,13 @@ In a web browser, open http://localhost:3000. The page should load and display t
 
 Check for details in the browser console where you will say the result of any logging, errors, etc.
 
-![Finished](.\media\test.png)
+![Finished](./media/test.png)
 
 
 
 Inspect the event table to see generated rows
 
-![inspect element](.\media\inspect_element.png)
+![inspect element](./media/inspect_element.png)
 
 
 
