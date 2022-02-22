@@ -14,6 +14,8 @@ The Supabase API examples for accessing data can be found in the API section for
 
 ![Supabase API examples](./media/api.png)
 
+
+
 ## Pre-requisites
 
 This tutorial continues from the previous ones, make sure that you:
@@ -93,6 +95,8 @@ You should also open the browser console and check for any error messages or oth
 
 
 
+
+
 ## Connecting to Supabase
 
 The next step is to connect to Supabase so that data can be retrieved via the API. The application has been partially configured but you will need to add some parameters and settings for your Supabase account.
@@ -107,6 +111,8 @@ This is a set of JavaScript functions which provides access to the database. The
 
 Also note that ```index.js``` after Supabase, more on that later.
 
+
+
 #### 2. Configure Supabase
 
 Now to configure Supabase so that it can access your account and database. Open ```supbase.js``` which you can find the the ```public/src/dataAccess``` folder.
@@ -115,7 +121,7 @@ Now to configure Supabase so that it can access your account and database. Open 
 
 
 
-Replace the placeholder text with you values which can be found in the API settings section of your Supabase database.
+Replace the placeholder values of ```supabaseUrl``` and ```supbaseKey``` with your values which can be found in the API settings section of your Supabase database.
 
 ![supabase settings](./media/supabase_settings.png)
 
@@ -128,6 +134,8 @@ The rest of ```supbase.js``` creates a connection to Supabase, which is exported
 When index.html loads first, it is empty and looks like this: 
 
 ![empty page](./media/empty_page.png)
+
+
 
 The events will be inserted in index.html as rows in the ```tbody``` element of the events table with ```id="eventRows"```
 
@@ -163,13 +171,19 @@ Line 10 of  ```index.js``` gets a reference to the page element (```index.html``
 
 further down the page at line 49, the ```async function loadAndDisplayData()``` calls ```eventData.getAllEvents()``` to get a list of the events from Supabase.
 
-![Load and Display Data](./media/loadAndDisplayData.png)
-
 
 
 ### getAllEvents()
 
-The function can be found in **```public/src/dataAccess/eventData.js```**. This file contains all of the functions required for getting event data from Supabase.
+The function is  in **```public/src/dataAccess/eventData.js```**. This file contains all of the functions required for getting event data from Supabase and is imported as ```eventData``` at the start of ```index.js```. 
+
+That is why it is it is called using ```eventData.getAllEvents()```
+
+![Load and Display Data](./media/loadAndDisplayData.png)
+
+ 
+
+Here is the contends of ```eventData.js``` showing ```getAllEvents()```. The function calls the SupaBase API and retrieves all the events. The syntax used is similar to SQL.
 
 ![Event Data](./media/evenData.png)
 
@@ -177,7 +191,7 @@ The function can be found in **```public/src/dataAccess/eventData.js```**. This 
 
 ### index.js - Display Events
 
-The list of ```events``` returned by ```getAllEvents()``` is then passed to the ```displayEventList()``` function.
+The list of ```events``` returned by ```getAllEvents()``` is  passed to the ```displayEventList()``` function (in index.js).
 
 ![Display Events](./media/doisplay_events.png)
 
@@ -185,7 +199,11 @@ The list of ```events``` returned by ```getAllEvents()``` is then passed to the 
 
 ```displayEventList(events)``` can be found near the top of ```index.js``` at line 15. 
 
-The function creates a table row for each event and then adds the rows to ```index.html```
+The function creates a table row for each event and then adds the rows to the ```eventRows``` element in ```index.html``` - remember that ```eventRows``` references the ```<tbody>``` section of the events table.
+
+```const tableRows = events.map(event => { // return a row });``` can be read as **return** a html table row *for each* ```event``` found in ```events```. 
+
+The return statement builds the row from ```HTML``` and the attribute values for an ```event```. 
 
 ![displayEventList()](./media/displayEventList.png)
 
