@@ -3,7 +3,8 @@
 */
 
 // Supabase dependency is imported near end of index.html
-const { createClient } = supabase;
+// https://supabase.com/docs/reference/javascript/initializing
+import { createClient } from '@supabase/supabase-js'
 
 // Get these values from the API section of your Supabase account
 const supabaseUrl = 'supabase API url';
